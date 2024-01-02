@@ -1,5 +1,6 @@
-.cell{
-    width: 75px;
+/* Game cells class*/
+.cell{                      
+    width: 75px;            
     height: 75px;
     border: 2px solid;
     box-shadow: 0 0 0 2px;
@@ -7,18 +8,20 @@
     font-size: 50px;
     cursor: pointer;
 }
+/* Game Board id bg color, align, font */
 #gameContainer{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
     text-align: center;
     background-color: blanchedalmond;
 }
+/* Game Board grid */
 #cellContainer{
     display: grid;
     grid-template-columns: repeat(3,auto);
     width: 225px;
     margin: auto;
 }
-
+/* Restart Button */
 #restartBtn{
     width: 75px;
     height: 30px;

@@ -1,3 +1,4 @@
+// Constant variables and arrays to check
 const cells = document.querySelectorAll(".cell");
 const statusText = document.querySelector("#statusText");
 const restartBtn = document.querySelector("#restartBtn");
@@ -11,18 +12,20 @@ const winConditions = [
     [0, 4, 8],
     [2, 4, 6],
 ];
+// Changing variables
 let options = ["", "", "", "", "", "", "", "", ""];
 let currentPlayer = "X";
 let running = false;
 
-initializeGame();
-
-function initializeGame(){
+startGame();
+// Start game function for each loop and click event
+function startGame(){
     cells.forEach(cell => cell.addEventListener("click", cellClicked ))
     restartBtn.addEventListener("click", restartGame);
     statusText.textContent = `${currentPlayer}'s turn`;
     running = true;
 }
+// Cell clicked function if statement
 function cellClicked(){
     const cellIndex = this.getAttribute("cellIndex");
     if(options[cellIndex] != "" || !running){
@@ -32,14 +35,17 @@ function cellClicked(){
     updateCell(this, cellIndex);
     checkWinner();
 }
+// Update cell function
 function updateCell(cell, index){
     options[index] = currentPlayer;
     cell.textContent = currentPlayer;
 }
+// Change player function and ternary operator
 function changePlayer(){
     currentPlayer = (currentPlayer == "X") ? "O" : "X";
     statusText.textContent = `${currentPlayer}'s turn`;
 }
+// Check winner function for loop and if else if statement
 function checkWinner(){
     let roundWon = false;
 
@@ -70,6 +76,7 @@ function checkWinner(){
         changePlayer();
     }
 }
+//Restart game function
 function restartGame(){
     currentPlayer = "X";
     options = ["", "", "", "", "", "", "", "", ""];
